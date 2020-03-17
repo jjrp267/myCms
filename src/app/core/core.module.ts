@@ -4,14 +4,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CoreRoutingModule } from './core-routing.module';
-import { SuperheroService } from './services/superhero.service';
-import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
-import { AngularFireModule } from '@angular/fire';
-import { environment } from 'src/environments/environment';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { NewsService } from './http/news.service';
 import { AuthService } from './services/auth.service';
+
+
 
 @NgModule({
   declarations: [
@@ -21,21 +17,13 @@ import { AuthService } from './services/auth.service';
   ],
   imports: [
     CommonModule,
-    CoreRoutingModule,
-    HttpClientModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    AngularFireAuthModule,
-    AngularFirestoreModule
+    CoreRoutingModule
   ],
   exports: [
     HeaderComponent,
     FooterComponent,
-    MenuComponent,
-    RouterModule
+    MenuComponent
   ],
-  providers: [
-    SuperheroService,
-    AuthService
-  ]
+  providers: [ NewsService, AuthService ]
 })
 export class CoreModule { }

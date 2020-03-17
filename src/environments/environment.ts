@@ -4,16 +4,16 @@
 
 export const environment = {
   production: false,
-  superhero_api: 'https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/',
-  firebase: {
-    apiKey: '--------------------',
-    authDomain: '--------------------',
-    databaseURL: '--------------------',
-    projectId: '--------------------',
-    storageBucket: '--------------------',
-    messagingSenderId: '--------------------',
-    appId: '--------------------'
+  firebaseConfig : {
+    apiKey: "AIzaSyDqGZO5DhVk_pdgpZimowE7XXP9_ksRl4Y",
+    authDomain: "aaaa-56b72.firebaseapp.com",
+    databaseURL: "https://aaaa-56b72.firebaseio.com",
+    projectId: "aaaa-56b72",
+    storageBucket: "aaaa-56b72.appspot.com",
+    messagingSenderId: "977896384377",
+    appId: "1:977896384377:web:6982fb6f8ad28a8fdef1a8"
   }
+
 };
 
 /*

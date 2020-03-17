@@ -6,7 +6,6 @@ import {
   ViewChild
 } from '@angular/core';
 import { DosComponent } from '../../components/dos/dos.component';
-import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -21,9 +20,7 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
 
   images = [944, 1011, 984].map(n => `https://picsum.photos/id/${n}/900/500`);
 
-  constructor(
-    public authService: AuthService
-  ) { }
+  constructor() {}
 
   getNumber1(): number {
     return this.p1 + this.p2;

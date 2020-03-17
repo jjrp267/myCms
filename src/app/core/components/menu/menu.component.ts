@@ -24,5 +24,7 @@ export class MenuComponent implements OnInit {
       new Link('Contacto', AppURl.AppInfo + '/' + AppURl.AppContact)
     );
     this.links.push(new Link('About', AppURl.AppInfo + '/' + AppURl.AppAbout));
+    this.links.push(new Link('Listado Noticias', AppURl.AppNews + '/' + AppURl.AppList));
+    this.links.push(new Link('Login', AppURl.AppSignRoot + '/' + AppURl.AppSignIn));
   }
 }

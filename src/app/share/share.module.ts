@@ -2,11 +2,10 @@ import { NotificationService } from './services/notification.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-
-
 @NgModule({
   declarations: [
-    NotificationService
+    NotificationService,
+    // NewsService
   ],
   imports: [
     CommonModule
