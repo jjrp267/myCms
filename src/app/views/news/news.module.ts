@@ -4,13 +4,16 @@ import { InfoRoutingModule } from './news-routing.module';
 import { CardModule } from 'primeng/card';
 import { ColorPickerModule } from 'primeng/colorpicker';
 import { ListnewsComponent } from './pages/listnews/listnews.component';
+import { CreatenewsComponent } from './pages/createnews/createnews.component';
 import { FirebaseService } from 'src/app/core/services/firebase.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    ListnewsComponent
+    ListnewsComponent,
+    CreatenewsComponent
   ],
-  imports: [CommonModule, InfoRoutingModule, CardModule, ColorPickerModule],
+  imports: [CommonModule, InfoRoutingModule, CardModule, ColorPickerModule, ReactiveFormsModule],
   providers: [ FirebaseService]
 })
 export class NewsModule {}

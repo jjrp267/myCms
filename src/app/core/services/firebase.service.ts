@@ -12,6 +12,12 @@ export class FirebaseService {
      return this.db.collection('news').snapshotChanges();
   }
 
+  createNews(news) {
+      console.log('news firebase', news);
+      return true;
+      // return this.http.post(`${this.uri}/add`, contact);
+  }
+
   // getAvatars(){
   //     return this.db.collection('/avatar').valueChanges()
   // }
