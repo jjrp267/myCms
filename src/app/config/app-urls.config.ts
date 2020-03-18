@@ -19,6 +19,8 @@ export const AppURl = {
     // News
     AppNews: 'news',
     AppList: 'list',
+    AppView: 'view',
+    AppDelete: 'delete',
 
     // Login
     AppSignRoot: '',

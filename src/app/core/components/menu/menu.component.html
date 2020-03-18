@@ -1,6 +1,6 @@
-<h2>Menu</h2>
-<ul>
-  <li *ngFor="let link of links">
-    <a [routerLink]="link.url" routerLinkActive="active-route">{{link.label}}</a>
+<!-- <h2>Menu</h2> -->
+<ul class="nav flex-column">
+  <li *ngFor="let link of links" class="nav-item">
+    <a [routerLink]="link.url" routerLinkActive="active-route" class="nav-link">{{link.label}}</a>
   </li>
 </ul>

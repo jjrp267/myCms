@@ -31,11 +31,13 @@ export class ListnewsComponent implements OnInit {
     this.afs.collection('news').snapshotChanges().subscribe(
         data => {
            const newsArray = [];
-           // console.log('valores', data[0].payload.doc.data());
+           console.log('valores', data);
            data.forEach((element, index ) => {
+              console.log('element:', element.payload.doc.id);
               const newsObj = {} as News;
-              newsObj.title = element.payload.doc.data()['tittle'];
-              newsObj.subtitle = element.payload.doc.data()['tittle'];
+              newsObj.id = element.payload.doc.id;
+              newsObj.title = element.payload.doc.data()['title'];
+              newsObj.subtitle = element.payload.doc.data()['subtitle'];
               newsObj.description = element.payload.doc.data()['description'];
               newsArray.push(newsObj);
            });
@@ -44,14 +46,16 @@ export class ListnewsComponent implements OnInit {
             });
   }
 
-  // getNews(): void {
+  deleteNews(id) {
 
-  //     console.log('news nginit ');
-  //     this.newsService.getNews().subscribe((data: News[]) => {
-  //        console.log('news list', data);
-  //        this.news = data;
-  //     });
+        // tslint:disable-next-line:only-arrow-functions
+        this.afs.collection('news').doc(id).delete().then(function() {
+             alert('Noticia borrada correctamente');
+        // tslint:disable-next-line:only-arrow-functions
+        }).catch(function(error) {
+             alert('Error al borrar la noticia: ' + error);
+      });
 
-  // }
+  }
 
 }

@@ -7,11 +7,13 @@ import { ListnewsComponent } from './pages/listnews/listnews.component';
 import { CreatenewsComponent } from './pages/createnews/createnews.component';
 import { FirebaseService } from 'src/app/core/services/firebase.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DetailnewsComponent } from './pages/detailnews/detailnews.component';
 
 @NgModule({
   declarations: [
     ListnewsComponent,
-    CreatenewsComponent
+    CreatenewsComponent,
+    DetailnewsComponent
   ],
   imports: [CommonModule, InfoRoutingModule, CardModule, ColorPickerModule, ReactiveFormsModule],
   providers: [ FirebaseService]
