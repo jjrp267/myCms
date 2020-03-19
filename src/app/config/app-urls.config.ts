@@ -21,6 +21,7 @@ export const AppURl = {
     AppList: 'list',
     AppView: 'view',
     AppDelete: 'delete',
+    AppListComments: 'listComments',
 
     // Login
     AppSignRoot: '',

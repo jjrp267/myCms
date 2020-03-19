@@ -4,7 +4,6 @@ import { NewsService } from 'src/app/core/http/news.service';
 import { AngularFirestore } from '@angular/fire/firestore';
 // import { FirebaseService } from '../../../../core/services/firebase.service';
 
-
 @Component({
   selector: 'app-listnews',
   templateUrl: './listnews.component.html',
@@ -15,6 +14,7 @@ export class ListnewsComponent implements OnInit {
 
 
   news = [];
+
   // constructor(private newsService: NewsService) {
   //   console.log('news constructor');
   //  }
@@ -55,6 +55,12 @@ export class ListnewsComponent implements OnInit {
         }).catch(function(error) {
              alert('Error al borrar la noticia: ' + error);
       });
+
+  }
+
+  getCommnets(id) {
+
+    console.log('comentarios');
 
   }
 

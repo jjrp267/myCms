@@ -27,13 +27,12 @@
                     <td>{{ onenews.subtitle }}</td>
                     <td>{{ onenews.description }}</td>
                     <td><a [routerLink]="['/news/view', onenews.id]" class="btn btn-primary">Detalle</a></td>
-                    <td><a (click) = "deleteNews(onenews.id)" class="btn btn-primary">Borrar.</a></td>
-                    <!-- <td><a (click) = "deleteContacts(contact._id)" class="btn btn-danger">Borrar</a></td> -->
+                    <td><a (click) = "deleteNews(onenews.id)" class="btn btn-primary">Borrar</a></td>
+                    <td><a [routerLink]="['/news/listComments', onenews.id]" class="btn btn-primary">Comentarios</a></td>
                 </tr>
             </tbody>
           </table>
         </div>
     </div>
   </div>
-
 </div>

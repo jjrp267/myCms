@@ -1,0 +1,18 @@
+<h3>Añadir comentarios</h3>
+
+<form [formGroup]="CommentsForm" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label for="comments">Comentarios</label>
+    <textarea formControlName="comments" class="form-control" id="comments" rows="3"></textarea>
+  </div>
+
+
+  <button class="btn btn-primary" type="submit" [disabled]="!CommentsForm.valid">Aceptar</button>
+
+
+  
+  
+</form>
+
+<!-- <button class="btn btn-primary" (click) ="info()">info</button> -->

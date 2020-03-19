@@ -1,0 +1,33 @@
+
+<div class="shadow-sm p-3 mb-5 bg-white rounded">
+    <div class="row">
+      <div class="col-sm-4">
+          <div class="shadow-none p-3 mb-5 bg-light rounded">
+             <app-create-comments></app-create-comments>
+          </div>
+      </div>
+  
+      <div class="col-sm-8">
+          <div class="shadow-none p-3 mb-5 bg-light rounded">
+            <h3>Listado de comentarios de la noticia</h3>
+  
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                    <td>Comentarios</td>
+                    <td colspan="2">acciones</td>
+                </tr>
+              </thead>
+  
+              <tbody>
+                  <tr *ngFor="let onecomment of comments" id="contacts-table">
+                      <td>{{ onecomment.comments }}</td>
+                      <td><a [routerLink]="['/news/view', onecomment.id]" class="btn btn-primary">Detalle</a></td>
+                      <td><a (click) = "deleteComments(onecomment.id)" class="btn btn-primary">Borrar</a></td>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+      </div>
+    </div>
+  </div>
