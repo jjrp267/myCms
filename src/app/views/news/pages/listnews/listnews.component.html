@@ -1,11 +1,6 @@
 
 <div class="shadow-sm p-3 mb-5 bg-white rounded">
   <div class="row">
-    <div class="col-sm-4">
-        <div class="shadow-none p-3 mb-5 bg-light rounded">
-           <app-createnews></app-createnews>
-        </div>
-    </div>
 
     <div class="col-sm-8">
         <div class="shadow-none p-3 mb-5 bg-light rounded">
@@ -14,10 +9,10 @@
           <table class="table table-hover">
             <thead>
               <tr>
-                  <td>titulo</td>
-                  <td>subtitulo</td>
-                  <td>descripcion</td>
-                  <td colspan="2">acciones</td>
+                  <td class="font-weight-bold">Titulo</td>
+                  <td class="font-weight-bold">Subtitulo</td>
+                  <td class="font-weight-bold">Descripcion</td>
+                  <td class="font-weight-bold" colspan="4">acciones</td>
               </tr>
             </thead>
 
@@ -34,5 +29,12 @@
           </table>
         </div>
     </div>
+
+    <div class="col-sm-4">
+      <div class="shadow-none p-3 mb-5 bg-light rounded">
+         <app-createnews></app-createnews>
+      </div>
+    </div>
+
   </div>
 </div>
