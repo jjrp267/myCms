@@ -3,7 +3,7 @@
 <form [formGroup]="CommentsForm" (ngSubmit)="onSubmit()">
 
   <div class="form-group">
-    <label for="comments">Comentarios</label>
+    <label for="comments">noticia: {{message}}</label>
     <textarea formControlName="comments" class="form-control" id="comments" rows="3"></textarea>
   </div>
 
