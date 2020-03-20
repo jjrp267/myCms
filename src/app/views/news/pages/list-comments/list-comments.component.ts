@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute, Router } from '@angular/router';
 import Comments from 'src/app/core/models/comments';
+import { DataService } from 'src/app/core/services/data.service';
 
 @Component({
   selector: 'app-list-comments',
@@ -15,7 +16,8 @@ export class ListCommentsComponent implements OnInit {
 
   constructor(private afs: AngularFirestore,
               private route: ActivatedRoute,
-              private router: Router) { }
+              private router: Router,
+              private dataservice: DataService) { }
 
   ngOnInit() {
 
@@ -32,6 +34,10 @@ export class ListCommentsComponent implements OnInit {
       console.log('parametros de llegada', params);
       this.idNews = params.id;
       // this.CommentsForm.patchValue({'idNews' : this.idNews});
+
+
+      this.dataservice.setBehaviorView({idNews: params.id});
+
       this.getListComments();
     });
   }

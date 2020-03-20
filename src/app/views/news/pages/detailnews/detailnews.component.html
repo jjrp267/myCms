@@ -1,6 +1,6 @@
 <h3>Edición de noticias</h3>
 
-<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="editForm" (ngSubmit)="updateNews()">
   <div class="form-group">
     <label for="title">Titulo:</label>
     <input type="text" class="form-control" formControlName="title">

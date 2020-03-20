@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import News from 'src/app/core/models/news.model';
 import { NewsService } from 'src/app/core/http/news.service';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { FirebaseService } from 'src/app/core/services/firebase.service';
 // import { FirebaseService } from '../../../../core/services/firebase.service';
 
 @Component({
@@ -12,23 +13,18 @@ import { AngularFirestore } from '@angular/fire/firestore';
 
 export class ListnewsComponent implements OnInit {
 
-
   news = [];
 
-  // constructor(private newsService: NewsService) {
-  //   console.log('news constructor');
-  //  }
-  constructor(private afs: AngularFirestore) { }
+  constructor(private fs: FirebaseService) { }
 
   ngOnInit() {
 
     this.getNews();
-
   }
 
   getNews(): void {
 
-    this.afs.collection('news').snapshotChanges().subscribe(
+      this.fs.getNews().subscribe(
         data => {
            const newsArray = [];
            console.log('valores', data);
@@ -48,8 +44,8 @@ export class ListnewsComponent implements OnInit {
 
   deleteNews(id) {
 
-        // tslint:disable-next-line:only-arrow-functions
-        this.afs.collection('news').doc(id).delete().then(function() {
+    // tslint:disable-next-line:only-arrow-functions
+    this.fs.deleteNews(id).then(function() {
              alert('Noticia borrada correctamente');
         // tslint:disable-next-line:only-arrow-functions
         }).catch(function(error) {
