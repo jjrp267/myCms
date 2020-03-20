@@ -8,6 +8,8 @@ export class FirebaseService {
 
   constructor(private afs: AngularFirestore) {}
 
+  // News
+
   getNews() {
     return this.afs.collection('news').snapshotChanges();
   }
@@ -27,5 +29,23 @@ export class FirebaseService {
   addNews(news) {
       return this.afs.collection('news').add(news);
   }
+
+  // Comments
+
+  getComments(idNews) {
+    return this.afs.collection('comments', ref => ref.where('idNews', '==', idNews )).snapshotChanges();
+  }
+
+  deleteComment(id) {
+    return this.afs.collection('comments').doc(id).delete();
+  }
+
+  addComments(idNews, comments) {
+
+    return this.afs.collection('comments').add({
+        idNews: idNews,
+        comments:  comments}
+         );
+}
 
 }

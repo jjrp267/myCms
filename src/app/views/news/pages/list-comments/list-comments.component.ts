@@ -1,20 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ActivatedRoute, Router } from '@angular/router';
 import Comments from 'src/app/core/models/comments';
 import { DataService } from 'src/app/core/services/data.service';
+import { Subscription } from 'rxjs';
+import { FirebaseService } from 'src/app/core/services/firebase.service';
 
 @Component({
   selector: 'app-list-comments',
   templateUrl: './list-comments.component.html',
   styleUrls: ['./list-comments.component.scss'],
 })
-export class ListCommentsComponent implements OnInit {
+
+export class ListCommentsComponent implements OnInit, OnDestroy {
 
   idNews: string;
   comments = [];
+  titleNews: string;
+  private subscription: Subscription;
 
-  constructor(private afs: AngularFirestore,
+  constructor(private fs: FirebaseService,
               private route: ActivatedRoute,
               private router: Router,
               private dataservice: DataService) { }
@@ -28,27 +33,24 @@ export class ListCommentsComponent implements OnInit {
   getIdNews() {
 
     this.route.params.subscribe(params => {
-      // this.contactsService.editContact(params['id']).subscribe(res => {
-      //   this.contact = res;
-      // });
       console.log('parametros de llegada', params);
       this.idNews = params.id;
-      // this.CommentsForm.patchValue({'idNews' : this.idNews});
 
-
-      this.dataservice.setBehaviorView({idNews: params.id});
+      this.fs.getNewsById(this.idNews).subscribe(
+        data => {
+           console.log('titulo de la noticia', data.data().title);
+           this.titleNews = data.data().title;
+           this.dataservice.changeTitleNews(data.data().title);
+        });
 
       this.getListComments();
     });
   }
 
-
   getListComments() {
 
-    // ('avisos', ref => ref.where('categoria','==', categoriaToFilter )
-    // this.afs.collection('comments').snapshotChanges().subscribe(
-    this.afs.collection('comments', ref => ref.where('idNews', '==', this.idNews )).snapshotChanges().subscribe(
-      data => {
+     this.fs.getComments(this.idNews).subscribe(
+     data => {
          const newsArray = [];
          console.log('valores', data);
          data.forEach((element, index ) => {
@@ -64,17 +66,25 @@ export class ListCommentsComponent implements OnInit {
           });
 
 
+
   }
 
   deleteComments(id) {
+
      console.log('delete comentarios');
      // tslint:disable-next-line:only-arrow-functions
-     this.afs.collection('comments').doc(id).delete().then(function() {
+     this.fs.deleteComment(id).then(function() {
          alert('comentario borrado correctamente');
          // tslint:disable-next-line:only-arrow-functions
      }).catch(function(error) {
          alert('Error al borrar el comentario: ' + error);
      });
+  }
+
+  ngOnDestroy() {
+    if (this.subscription){
+     this.subscription.unsubscribe();
+    }
   }
 
 }
