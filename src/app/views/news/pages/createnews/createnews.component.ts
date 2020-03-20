@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NewsService } from 'src/app/core/http/news.service';
 import { FirebaseService } from 'src/app/core/services/firebase.service';
-import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-createnews',
@@ -14,7 +13,7 @@ export class CreatenewsComponent implements OnInit {
   message: string;
   NewsForm: FormGroup;
 
-  constructor(private afs: AngularFirestore) { }
+  constructor(private fs: FirebaseService) { }
 
   ngOnInit() {
 
@@ -28,11 +27,8 @@ export class CreatenewsComponent implements OnInit {
     // TODO: Use EventEmitter with form value
     console.log(this.NewsForm.value);
 
-    this.afs.collection('news').add({
-        title: this.NewsForm.value.title,
-        subtitle:  this.NewsForm.value.subtitle,
-        description : this.NewsForm.value.description}
-         ).then (
+    this.fs.addNews(this.NewsForm.value)
+         .then (
            res => alert('Noticia creada')
          );
     }

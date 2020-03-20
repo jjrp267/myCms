@@ -6,57 +6,26 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class FirebaseService {
 
-  constructor(public db: AngularFirestore) {}
+  constructor(private afs: AngularFirestore) {}
 
   getNews() {
-     return this.db.collection('news').snapshotChanges();
+    return this.afs.collection('news').snapshotChanges();
   }
 
-  createNews(news) {
-      console.log('news firebase', news);
-      return true;
-      // return this.http.post(`${this.uri}/add`, contact);
+  deleteNews(id) {
+    return this.afs.collection('news').doc(id).delete();
   }
 
-  // getAvatars(){
-  //     return this.db.collection('/avatar').valueChanges()
-  // }
+  getNewsById(idNews) {
+    return this.afs.collection('news').doc(idNews).get();
+  }
 
-  // getUser(userKey){
-  //   return this.db.collection('users').doc(userKey).snapshotChanges();
-  // }
+  updateNews(idNews, news) {
+    return this.afs.collection('news').doc(idNews).set(news);
+  }
 
-  // updateUser(userKey, value){
-  //   value.nameToSearch = value.name.toLowerCase();
-  //   return this.db.collection('users').doc(userKey).set(value);
-  // }
+  addNews(news) {
+      return this.afs.collection('news').add(news);
+  }
 
-  // deleteUser(userKey){
-  //   return this.db.collection('users').doc(userKey).delete();
-  // }
-
-  // getUsers(){
-  //   return this.db.collection('users').snapshotChanges();
-  // }
-
-  // searchUsers(searchValue){
-  //   return this.db.collection('users',ref => ref.where('nameToSearch', '>=', searchValue)
-  //     .where('nameToSearch', '<=', searchValue + '\uf8ff'))
-  //     .snapshotChanges()
-  // }
-
-  // searchUsersByAge(value){
-  //   return this.db.collection('users',ref => ref.orderBy('age').startAt(value)).snapshotChanges();
-  // }
-
-
-  // createUser(value, avatar){
-  //   return this.db.collection('users').add({
-  //     name: value.name,
-  //     nameToSearch: value.name.toLowerCase(),
-  //     surname: value.surname,
-  //     age: parseInt(value.age),
-  //     avatar: avatar
-  //   });
-  // }
 }
