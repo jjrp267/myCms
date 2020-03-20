@@ -1,5 +1,13 @@
-<ion-app>
-  <app-header></app-header>
-  <ion-router-outlet class="content"></ion-router-outlet>
-  <app-footer></app-footer>
-</ion-app>
+<div class="container-fluid">  
+
+    <app-header></app-header>
+    <div class="row">
+        <div class="col-sm-2">
+            <app-menu></app-menu>
+        </div>
+        <div class="col-sm-10">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</div>
