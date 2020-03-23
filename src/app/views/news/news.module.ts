@@ -11,6 +11,7 @@ import { DetailnewsComponent } from './pages/detailnews/detailnews.component';
 import { ListCommentsComponent } from './pages/list-comments/list-comments.component';
 import { CreateCommentsComponent } from './pages/create-comments/create-comments.component';
 import { DataService } from 'src/app/core/services/data.service';
+import { PreviewComponent } from './pages/preview/preview.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DataService } from 'src/app/core/services/data.service';
     CreatenewsComponent,
     DetailnewsComponent,
     ListCommentsComponent,
-    CreateCommentsComponent
+    CreateCommentsComponent,
+    PreviewComponent
   ],
   imports: [CommonModule, InfoRoutingModule, CardModule, ColorPickerModule, ReactiveFormsModule],
   providers: [ FirebaseService, DataService]

@@ -22,6 +22,7 @@ export const AppURl = {
     AppView: 'view',
     AppDelete: 'delete',
     AppListComments: 'listComments',
+    AppPreview: 'preview',
 
     // Login
     AppSignRoot: '',
