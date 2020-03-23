@@ -5,7 +5,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppURl } from 'src/app/config/app-urls.config';
 import { AboutPageComponent } from './pages/about-page/about-page.component';
-import { ListnewsComponent } from '../news/pages/listnews/listnews.component';
 
 const routes: Routes = [
   { path: AppURl.AppInfoRoot, redirectTo: AppURl.AppContact, pathMatch: 'full' },

@@ -1,0 +1,15 @@
+<div class="shadow-sm p-3 mb-5 bg-white rounded">
+  <div class="row">
+
+    <section class="text-center">
+        <h1 class="text-center"><i>Preview de noticias</i></h1>
+            <div *ngFor="let onenews of news" id="contacts-table">
+                <article>
+                  <h2 class="text-center">{{ onenews.title }}</h2>
+                  <h4 class="text-center">{{ onenews.subtitle }}</h4>
+                  <p>{{ onenews.description }}</p>
+                </article>
+            </div>             
+    </section>
+  </div>
+</div>
