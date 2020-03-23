@@ -12,6 +12,8 @@ import { ListCommentsComponent } from './pages/list-comments/list-comments.compo
 import { CreateCommentsComponent } from './pages/create-comments/create-comments.component';
 import { DataService } from 'src/app/core/services/data.service';
 import { PreviewComponent } from './pages/preview/preview.component';
+import { ImagesComponent } from './pages/images/images.component';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 @NgModule({
   declarations: [
@@ -20,9 +22,10 @@ import { PreviewComponent } from './pages/preview/preview.component';
     DetailnewsComponent,
     ListCommentsComponent,
     CreateCommentsComponent,
-    PreviewComponent
+    PreviewComponent,
+    ImagesComponent
   ],
   imports: [CommonModule, InfoRoutingModule, CardModule, ColorPickerModule, ReactiveFormsModule],
-  providers: [ FirebaseService, DataService]
+  providers: [ FirebaseService, DataService, AngularFireStorage]
 })
 export class NewsModule {}
