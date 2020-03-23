@@ -16,6 +16,11 @@
     <textarea formControlName="description" class="form-control" id="description" rows="3"></textarea>
   </div>
 
+  <div class="form-group">
+    <label for="fecAlta">Fecha</label>
+    <input type="text" formControlName="fecAlta" class="form-control" id="fecAlta">
+  </div>
+
   <button class="btn btn-primary" type="submit" [disabled]="!editForm.valid">Aceptar</button>
 
 </form>

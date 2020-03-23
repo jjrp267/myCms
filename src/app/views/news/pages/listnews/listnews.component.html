@@ -12,6 +12,7 @@
                   <td class="font-weight-bold">Titulo</td>
                   <td class="font-weight-bold">Subtitulo</td>
                   <td class="font-weight-bold">Descripcion</td>
+                  <td class="font-weight-bold">Fecha</td>
                   <td class="font-weight-bold" colspan="4">acciones</td>
               </tr>
             </thead>
@@ -21,6 +22,7 @@
                     <td>{{ onenews.title }}</td>
                     <td>{{ onenews.subtitle }}</td>
                     <td>{{ onenews.description }}</td>
+                    <td>{{ onenews.fecAlta | date:'shortDate' }}</td>
                     <td><a [routerLink]="['/news/view', onenews.id]" class="btn btn-primary">Detalle</a></td>
                     <td><a (click) = "deleteNews(onenews.id)" class="btn btn-primary">Borrar</a></td>
                     <td><a [routerLink]="['/news/listComments', onenews.id]" class="btn btn-primary">Comentarios</a></td>

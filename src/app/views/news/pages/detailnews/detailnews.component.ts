@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { FirebaseService } from 'src/app/core/services/firebase.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-detailnews',
@@ -12,6 +13,7 @@ export class DetailnewsComponent implements OnInit {
 
   editForm: FormGroup;
   idNews: string;
+  // pipe = new DatePipe();
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -31,7 +33,8 @@ export class DetailnewsComponent implements OnInit {
     this.editForm = this.fb.group({
       title: ['', Validators.required],
       subtitle: ['', Validators.required],
-      description: ['', Validators.required]
+      description: ['', Validators.required],
+      fecAlta: []
     });
   }
 
@@ -51,13 +54,17 @@ export class DetailnewsComponent implements OnInit {
         console.log('datos de la noticia', data.data());
         this.editForm.patchValue({title: data.data().title,
                              subtitle: data.data().subtitle,
-                             description: data.data().description});
+                             description: data.data().description,
+                            fecAlta: data.data().fecAlta.toDate()});
           }
     );
 
   }
 
   updateNews() {
+    // const mydate = new Date();
+    // const fecAlta = this.pipe.transform(now, 'short');
+    // fecAlta = mydate.
 
       this.fs.updateNews(this.idNews, this.editForm.value)
       // tslint:disable-next-line:only-arrow-functions
