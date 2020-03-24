@@ -28,13 +28,13 @@ export class ListnewsComponent implements OnInit {
            data.forEach((element, index ) => {
               console.log('element id:', element.payload.doc.id);
               console.log('element:', element.payload.doc.data());
-              console.log('element datetime:', element.payload.doc.data()['fecAlta'].toDate());
+              // console.log('element datetime:', element.payload.doc.data()['fecAlta'].toDate());
               const newsObj = {} as News;
               newsObj.id = element.payload.doc.id;
               newsObj.title = element.payload.doc.data()['title'];
               newsObj.subtitle = element.payload.doc.data()['subtitle'];
               newsObj.description = element.payload.doc.data()['description'];
-              newsObj.fecAlta = element.payload.doc.data()['fecAlta'].toDate();
+              // newsObj.fecAlta = element.payload.doc.data()['fecAlta'].toDate();
               newsArray.push(newsObj);
            });
            // console.log(newsArray);

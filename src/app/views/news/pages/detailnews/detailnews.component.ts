@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { FirebaseService } from 'src/app/core/services/firebase.service';
 import { DatePipe } from '@angular/common';
+import { NodeWithI18n } from '@angular/compiler';
 
 @Component({
   selector: 'app-detailnews',
@@ -54,8 +55,7 @@ export class DetailnewsComponent implements OnInit {
         console.log('datos de la noticia', data.data());
         this.editForm.patchValue({title: data.data().title,
                              subtitle: data.data().subtitle,
-                             description: data.data().description,
-                            fecAlta: data.data().fecAlta.toDate()});
+                             description: data.data().description});
           }
     );
 
