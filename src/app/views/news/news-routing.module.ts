@@ -5,13 +5,15 @@ import { ListnewsComponent } from './pages/listnews/listnews.component';
 import { DetailnewsComponent } from './pages/detailnews/detailnews.component';
 import { ListCommentsComponent } from './pages/list-comments/list-comments.component';
 import { PreviewComponent } from './pages/preview/preview.component';
+import { ImagesComponent } from './pages/images/images.component';
 
 const routes: Routes = [
   { path: AppURl.AppNews, redirectTo: AppURl.AppNews, pathMatch: 'full' },
   { path: AppURl.AppList, component: ListnewsComponent},
   { path: AppURl.AppView + '/:id', component: DetailnewsComponent},
   { path: AppURl.AppListComments + '/:id', component: ListCommentsComponent},
-  { path: AppURl.AppPreview, component: PreviewComponent}
+  { path: AppURl.AppPreview, component: PreviewComponent},
+  { path: AppURl.AppImages, component: ImagesComponent},
 ];
 
 @NgModule({

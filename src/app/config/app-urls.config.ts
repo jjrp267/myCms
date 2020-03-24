@@ -23,6 +23,7 @@ export const AppURl = {
     AppDelete: 'delete',
     AppListComments: 'listComments',
     AppPreview: 'preview',
+    AppImages: 'images',
 
     // Login
     AppSignRoot: '',

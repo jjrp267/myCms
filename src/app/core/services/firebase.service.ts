@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirebaseService {
 
-  constructor(private afs: AngularFirestore) {}
+  constructor(private afs: AngularFirestore,
+              private storage: AngularFireStorage) {}
 
   // News
 
@@ -46,6 +48,16 @@ export class FirebaseService {
         idNews: idNews,
         comments:  comments}
          );
-}
+  }
+
+    // Tarea para subir archivo
+    public tareaCloudStorage(nombreArchivo: string, datos: any) {
+      return this.storage.upload(nombreArchivo, datos);
+    }
+
+    // Referencia del archivo
+    public referenciaCloudStorage(nombreArchivo: string) {
+      return this.storage.ref(nombreArchivo);
+    }
 
 }
